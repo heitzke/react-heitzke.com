@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css?family=PT+Sans&display=swap');
+@import 'tachyons.css';
+
+* {
+  scroll-behavior: smooth;
+}
+
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+body {
+  //font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: 'PT Sans','Helvetica Neue', 'Proxima Nova', 'Helvetica', 'Arial', sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #108db8;
+  font-weight: bold;
+}
+
+img {
+  max-width: 100%;
+}
+
+nav {
+  width: 100%;
+  background: #108db8;
+}
+
+nav a {
+  color: white;
+  padding: 1rem;
+  display: inline-block;
+}
+
+.intro--block {
+  position: relative;
+}
+
+.intro--block img {
+  position: absolute;
+  z-index: 4;
+}
+
+
+.intro--block-text {
+  margin-top: 150px;
+  margin-left: 320px;
+  z-index: 3;
+  position: relative;
+}
+
+.intro--block-text::before {
+  position: absolute;
+  left: -290px;
+  bottom: 0px;
+  content: '';
+  z-index: 3;
+  width: 290px;
+  height: 300px;
+  background: #fff;
+  display: inline-block;
+}
+
+.btn {
+  border-radius: 100px;
+  background: #5C65B3;
+  color: #fff;
+  padding: 15px 40px;
+  margin-top: 2.25rem;
+  display: inline-block;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 3rem 40px;
+}
+
+.container p {
+  font-size: 1.1rem;
+}
+
+.intro {
+  background: url("../public/top-section-bg.svg") repeat #000;
+  overflow: hidden;
+}
+
+.partners {
+  background: url("../public/background-pattern.svg") repeat #262329;
+}
+
+.card1 {
+  background: url("../public/bg-g1.svg") no-repeat;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: 2;
+  height: 600px;
+}
+.card2 {
+  background: url("../public/bg-g2.svg") no-repeat;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: 3;
+  height: 600px;
+}
+.card3 {
+  background: url("../public/bg-g3.svg") no-repeat;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: 4;
+  height: 600px;
+}
+
+.card--container {
+  position: absolute;
+  z-index: 1;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 125px;
+}
+
+
+@media (max-width: 900px) {
+  .intro--block {
+    flex-direction: column;
+  }
+  .intro--block-text {
+    margin: -20px 0 0 0;
+  }
+  .intro--block-text::before {
+    display: none;
+  }
+  .intro--block img {
+    position: relative;
+  }
+  .card--container {
+    left: 0;
+  }
+  .card1, .card2, .card3 {
+  }
+  .intro {
+    padding: 30px;
+  }
+}
+
+.partners .flex {
+  flex-wrap: wrap;
+  align-content: space-between;
+  justify-content: center;
+}
+
+.partner-logos img {
+  padding: 10px;
+}
+
+
+.contact {
+  background: #42C0B2
+}
