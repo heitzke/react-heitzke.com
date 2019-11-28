@@ -1,3 +1,3 @@
-# React-Static - Basic Template
+# Personal site
 
-To use this template, run `react-static create` and use the `basic` template.
+Messily built on react-static, working on some continued learning here
