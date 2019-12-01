@@ -120,6 +120,12 @@ nav a {
   padding: 15px 40px;
   margin-top: 2.25rem;
   display: inline-block;
+  transition: background .2s ease-in;
+}
+
+.btn:hover {
+  background: #4c549c;
+  transition: background .2s ease-in;
 }
 
 .container {

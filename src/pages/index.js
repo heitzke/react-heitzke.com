@@ -1,5 +1,6 @@
 import React from 'react'
 import { useSpring, animated } from 'react-spring'
+import {Spring} from 'react-spring/renderprops'
 
   const calc = (x, y) => [x - window.innerWidth / 2, y - window.innerHeight / 3]
   const trans1 = (x, y) => `translate3d(${x / 15}px,${y / 25}px,0)`
@@ -9,28 +10,50 @@ import { useSpring, animated } from 'react-spring'
   function Card() {
     const [props, set] = useSpring(() => ({ xy: [0, 0], config: { mass: 10, tension: 550, friction: 140 } }))
     return (
-      <div class="card--container" onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}>
-        <animated.div class="card1" style={{ transform: props.xy.interpolate(trans1) }} />
-        <animated.div class="card2" style={{ transform: props.xy.interpolate(trans2) }} />
-        <animated.div class="card3" style={{ transform: props.xy.interpolate(trans3) }} />
+      <div className="card--container" onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}>
+        <animated.div className="card1" style={{ transform: props.xy.interpolate(trans1) }} />
+        <animated.div className="card2" style={{ transform: props.xy.interpolate(trans2) }} />
+        <animated.div className="card3" style={{ transform: props.xy.interpolate(trans3) }} />
+      </div>
+    )
+  }
+
+
+function Intro() {
+    return (
+      <div>
+        <h1 className="f2 mb3">I’m Mike Heitzke, a technical product designer, manager and enthusiast</h1>
+        <h2>+ DesignOps + 90’s JDM cars + Powerlifting</h2>
       </div>
     )
   }
 
 export default () => (
-  <div>
+  <animated.div style={useSpring({
+      from: {opacity: 0, marginTop: -10},
+      to: {opacity: 1, marginTop: 0}
+    })}>
     <div className="intro pa5 pb6">
-      <div className="intro--block container ml-auto mr-auto flex mb5">
+      <animated.div className="intro--block container ml-auto mr-auto flex mb5" style={useSpring({
+          to: {opacity: 1, marginTop: 0, duration: 4000, delay: 4000},
+          from: {opacity: 0, marginTop: -40, duration: 4000, delay: 10000}
+        })}>
       <Card />
-
-        <img src="profile.png" width="325px"/>
+        <Spring config={{delay: 150}}
+          from={{ transform: 'translate3d(0,-10px,0)' }}
+          to={{ transform: 'translate3d(0,0x,0)' }}>
+          {props => <img style={props} src="profile.png" width="325px"/>}
+        </Spring>
         <div className="pa4 intro--block-text bg-white">
           <div className="mt2">
-            <h1 className="f2 mb3">I’m Mike Heitzke, a technical product designer, manager and enthusiast</h1>
-            <h2>+ DesignOps + 90’s JDM cars + Powerlifting</h2>
+          <Spring config={{delay: 250}}
+            from={{ transform: 'translate3d(-2px,-20px,0)', opacity: 0 }}
+            to={{ transform: 'translate3d(0,0,0)', opacity: 1 }}>
+            {props => <div style={props}><Intro /></div>}
+            </Spring>
           </div>
         </div>
-      </div>
+      </animated.div>
     </div>
     <div className="tc partners">
       <div className="container">
@@ -45,6 +68,7 @@ export default () => (
           <img src="watchbox.svg" />
         </div>
         <a href="#?" className="btn  btn--disabled">I'm workin' on casestudies</a>
+        <span className="w-100 tc db f6 mt3 silver">Ask me more, or check back soon</span>
       </div>
     </div>
     <div className="contact">
@@ -64,5 +88,5 @@ export default () => (
           <p className="black-40">'93 'til ∞</p>
         </div>
     </div>
-  </div>
+  </animated.div>
 )
